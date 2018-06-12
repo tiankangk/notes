@@ -1,0 +1,30 @@
+ <script src="__APP_URL__/Public/static/js/jquery.zclip.js"></script>
+
+  // 复制文本内容到剪切板
+                var content = '';
+                $('.showHotel .copyLink').mouseover(function(e) {
+                    e.preventDefault();
+                    var self = $(this);
+                    $.post("{:U('copyLink')}", {
+                        data: self.attr('data-id')
+                    }, function(data) {
+                        content = data;
+                    });
+                });
+
+
+
+
+                $('.showHotel .copyLink').zclip({
+                    path: '__APP_URL__/Public/static/js/ZeroClipboard.swf',
+                    copy: function(event) { //复制内容
+                        event.preventDefault();
+                        event.stopPropagation();
+                        return content;
+                    },
+                    afterCopy: function(event) { //复制成功
+                        event.preventDefault();
+                        event.stopPropagation();
+                        alert('复制成功', true);
+                    }
+                });

@@ -1,0 +1,44 @@
+index.html:整个html页面
+
+main.js 引用在index.html页面的js文件，用来创建vue实例，公用的css和jss文件都能放在里面
+
+app.vue 存在index.html 最外面的组件，公共的头部和尾部都能放在里面
+
+views 存放每一个单独的主页面的
+
+styles 存共用样式的文件夹
+
+rouer/index.js 管理路由的文件
+
+components 存放子组件的文件夹
+
+assets 放静态文件的文件夹
+
+api  管理后台请求的文件夹
+
+
+用npm安装的插件可以通过 import axios from 'axios'导入
+
+安装请求axios
+  npm i axios -S 安装
+  import axios from 'axios' 导入
+  const baseURL = 'http://element-cn.eleme.io/#/zh-CN/component/form';声明基础路径
+  axios.defaults.baseURL = baseUR设置基础路径
+  export const checkUser = params => {导出一个方法
+    return axios.post('login', params).then(res => res.data)
+}
+
+
+添加路由
+    import Login from '@/views/login'   @相当于src文件夹，导入组件
+    export default new Router({//导出路由
+        routes: [{
+            path: '/login',
+            name: 'Login',
+            component: Login
+        }]
+    })
+
+    import {checkUser} from '@/api'//导入方法
+
+

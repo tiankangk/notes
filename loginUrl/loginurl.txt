@@ -1,0 +1,23 @@
+一笑租赁pc网址：http://web.kongmings.com/app/index.php?i=4&c=entry&eid=55
+
+svn下载地址：svn://101.201.234.151/smile_fruits
+
+应用管理网站：web.kongmings.com
+账号：13554686571
+密码：13554686571
+
+微擎开发者手册 ：https://www.kancloud.cn/donknap/we7/136556  
+
+
+
+微信小程序AppSecret：2274df6342a2c831fe6c96aa8d78917a 
+	 AppID：wx1277daeea79a3994
+
+放插件的ftp地址：https://cdn.smile.hb.cn/ftp
+            账号：cdn_smile
+            密码：cdn_smileftp
+
+插件后台管理地址：https://cdn.smile.hb.cn/manageComponents/manageComponentL.html
+
+
+前台显示地址：https://cdn.smile.hb.cn/manageComponents/index.html

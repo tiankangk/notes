@@ -1,0 +1,30 @@
+安装后输入：$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
+
+
+
+$ git init 初始化git
+
+git add file.txt提交文件
+git add -A提交所有文件
+
+$ git commit -m "wrote a readme file"把文件提交到仓库，-m后面输入的是本次提交的说明
+
+$ git status看看结果
+
+
+
+
+
+打开Shell（Windows下打开Git Bash），创建SSH Key：
+
+$ ssh-keygen -t rsa -C "youremail@example.com"
+
+
+推送文件到github:
+	$ git remote add origin git@github.com:tiankangk/vue.git
+	$ git push -u origin master
+
+
+git remote rm origin  删除远程分支
