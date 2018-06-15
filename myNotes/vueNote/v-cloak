@@ -1,0 +1,7 @@
+v-cloak解决刷新的时候{{}}的闪现问题
+<style>
+    [v-cloak]{
+        display:none;
+    }
+</style>
+<p v-cloak>{{msg}}</p>
