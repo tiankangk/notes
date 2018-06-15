@@ -1,4 +1,6 @@
-一笑租赁pc网址：http://web.kongmings.com/app/index.php?i=4&c=entry&eid=55
+一笑租赁pc网址：http://web.kongmings.com/app/index.php?i=4&c=entry&do=shop_index&m=smile_lease
+
+酒店管理后台网址：http://card.kongmings.com/
 
 svn下载地址：svn://101.201.234.151/smile_fruits
 
