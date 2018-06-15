@@ -13,6 +13,8 @@ $ git commit -m "wrote a readme file"把文件提交到仓库，-m后面输入�
 
 $ git status看看结果
 
+把github上的项目clone到本地：git clone git@github.com:michaelliao/gitskills.git
+
 
 
 
