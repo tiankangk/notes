@@ -25,15 +25,8 @@ npm i安装所有依赖的包
 npm run dev启动项目
 
 sass的安装
-npm install node-sass --save-dev
-npm install sass-loader --save-dev
+npm i node-sass sass-loader --save-dev
 
-打开webpack.base.config.js在loaders里面加上
-rules: [{
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
-      },
-]
 <style lang="scss" scoped="" type="text/css"></style>
 启动项目要改的文件：config->index.js->autoOpenBrowser->true
 
