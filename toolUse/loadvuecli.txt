@@ -20,9 +20,9 @@ vue init webpack-simple demo(项目名)
 
 vue init webpack demo(项目名)较复杂的
 
-cnpm i安装所有依赖的包
+npm i安装所有依赖的包
 
-cnpm run dev启动项目
+npm run dev启动项目
 
 sass的安装
 npm install node-sass --save-dev
