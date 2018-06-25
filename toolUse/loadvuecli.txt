@@ -36,3 +36,5 @@ npm i vue-resource --save
 
 安装axios
   npm i axios -S
+安装vueX
+  npm install vuex -S
