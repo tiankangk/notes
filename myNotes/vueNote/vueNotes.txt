@@ -41,4 +41,14 @@ api  管理后台请求的文件夹
 
     import {checkUser} from '@/api'//导入方法
 
+引入公共的头部
+import myFoot from '@/public/footer'
+export default {
+  name: 'App',
+  components: {
+    myHead,
+    myFoot
+  }
+}
+
 
