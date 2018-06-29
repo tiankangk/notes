@@ -52,3 +52,9 @@ export default {
 }
 
 
+
+阻止事件的默认行为和冒泡
+    <span v-if="isShowCode"  @click.prevent="sendCode">发送验证码</span>
+    <span v-if="isShowCode"  @click.stop="sendCode">发送验证码</span>
+
+
