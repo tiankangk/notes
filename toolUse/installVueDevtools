@@ -1,0 +1,4 @@
+1.首先在github下载devtools源码，地址：https://github.com/vuejs/vue-devtools。或者git clone https://github.com/vuejs/vue-devtools.git
+2.在下载项目里面安装项目的依赖：npm install //如果太慢的话，可以安装一个cnpm, 然后命令换成 cnpm install
+3.编译项目文件：npm run build
+4.打开右上角的三点符号-->更多工具-->扩展程序-->把解压好的Chroome文件夹拖到网页里面，打开开发者模式
