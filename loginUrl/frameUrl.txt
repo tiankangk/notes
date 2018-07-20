@@ -12,3 +12,5 @@ jqueryWEUI:http://jqweui.com/extends#swiper 移动端的ui框架
 
 swiper:http://www.swiper.com.cn/移动端轮播框架
 
+微擎api:http://s.we7.cc/index.php?c=wiki&do=view&id=1&list=386
+
