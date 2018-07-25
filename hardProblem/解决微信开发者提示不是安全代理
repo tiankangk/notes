@@ -1,0 +1,2 @@
+1.在电脑左下角开始处点开输入regedit或按快捷键win+R然后输入regedit，打开注册表编辑器
+2.新建字符串值-》数值名称：ProxyOverride数值数据：*.local
