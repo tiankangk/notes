@@ -38,3 +38,7 @@ npm i vue-resource --save
   npm i axios -S
 安装vueX
   npm install vuex -S
+
+  
+NPM的天坑： 解决ERR! code UNABLE_TO_VERIFY_LEAF_SIGNATURE
+在命令行运行：npm config set strict-ssl false
