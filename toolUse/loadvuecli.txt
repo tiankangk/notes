@@ -40,5 +40,33 @@ npm i vue-resource --save
   npm install vuex -S
 
   
-NPM的天坑： 解决ERR! code UNABLE_TO_VERIFY_LEAF_SIGNATURE
-在命令行运行：npm config set strict-ssl false
+移动端的自适应
+1、npm i lib-flexible -S
+  npm i px2rem-loader -D
+
+2、// main.js
+import 'lib-flexible'
+
+3、把index.html的<meta name="viewport" content="width=device-width,initial-scale=1.0"> 去掉
+
+4、在build/utils.js里， 在 cssLoader 后再加上一个 px2remLoader
+utils.js
+var cssLoader = {
+  loader: 'css-loader',
+  options: {
+    minimize: process.env.NODE_ENV === 'production',
+    sourceMap: options.sourceMap
+  }
+}
+
+var px2remLoader = {
+  loader: 'px2rem-loader',
+  options: {
+    remUnit: 75
+  }
+}
+// ...
+
+5、generateLoaders函数里加上px2remLoader
+const loaders = options.usePostCSS ? [cssLoader, postcssLoader,px2remLoader] : [cssLoader,px2remLoader]
+
