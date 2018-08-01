@@ -1,0 +1,41 @@
+ <script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"> </script>
+        {php echo register_jssdk(false);}
+        <script>
+            wx.ready(function() {
+                var sharedata = {
+                    title: "{$setting['sharetitle']}", // 分享标题
+                    desc: "{$setting['shareContent']}", // 分享描述
+                    link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: "{$_W['attachurl_local']}{$setting['sharedimg']}", // 分享图标
+                    type: 'link'
+                };
+                // 微信分享
+                wx.onMenuShareTimeline(sharedata); //朋友圈
+                wx.onMenuShareAppMessage(sharedata); //微信好友
+                wx.onMenuShareQQ(sharedata); //QQ好友
+                wx.onMenuShareQZone(sharedata); //QQ空间
+                $('.openMap').click(function() {
+                    wx.getLocation({
+                        type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                        success: function(res) {
+                            var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                            var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                            var speed = res.speed; // 速度，以米/每秒计
+                            var accuracy = res.accuracy; // 位置精度
+                        },
+                        cancel: function(res) {
+                            // alert('用户拒绝授权获取地理位置');
+                        }
+                    });
+
+                    wx.openLocation({
+                        latitude: 114.358457,
+                        longitude: 30.594967,
+                        name: '梵犀建筑',
+                        address: '武汉市铁机路团结大道保利城G1-A-814',
+                        scale: 14,
+                        infoUrl: 'http://weixin.qq.com'
+                    });
+                });
+            });
+        </script>
