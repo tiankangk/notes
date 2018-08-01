@@ -231,10 +231,13 @@
         this.init();
     }
 
+    //国家 省 市 县
     CitySelect.DEFAULTS = {
+    	country: '',
         provance: '',
         city: '',
-        area: ''
+        area: '',
+        id: ''
     };
 
     CitySelect.prototype.init = function () {
@@ -242,7 +245,7 @@
             options = _this.options;
 
         if (typeof YDUI_CITYS == 'undefined') {
-            console.error('请在ydui.js前引入ydui.citys.js。下载地址：http://cityselect.ydui.org');
+//          console.error('请在ydui.js前引入ydui.citys.js。下载地址：http://cityselect.ydui.org');
             return;
         }
 
@@ -251,9 +254,11 @@
         _this.createDOM();
 
         _this.defaultSet = {
+			country: options.country,
             provance: options.provance,
             city: options.city,
-            area: options.area
+            area: options.area,
+            id: options.id
         };
     };
 
@@ -272,25 +277,32 @@
         var $cityElement = _this.$cityElement,
             defaultSet = _this.defaultSet;
 
-        $cityElement.find('.cityselect-content').removeClass('cityselect-move-animate cityselect-next cityselect-prev');
+        $cityElement.find('.cityselect-content').removeClass('cityselect-move-animate cityselect-next cityselect-prev cityselect-next-two');
 
+		_this.loadCountry();
         _this.loadProvance();
-
-        if (defaultSet.provance) {
-            _this.setNavTxt(0, defaultSet.provance);
+        console.log(defaultSet.id);
+        if (defaultSet.country) {
+            _this.setNavTxt(0, defaultSet.country, defaultSet.id.split('-')[0]);
         } else {
             $cityElement.find('.cityselect-nav a').eq(0).addClass('crt').html('请选择');
         }
-
+        
+		if (defaultSet.provance) {
+            _this.loadProvance();
+            _this.setNavTxt(1, defaultSet.provance, defaultSet.id.split('-')[1]);
+        }
+		
         if (defaultSet.city) {
             _this.loadCity();
-            _this.setNavTxt(1, defaultSet.city)
+            _this.ForwardViewTwo(true);
+            _this.setNavTxt(2, defaultSet.city, defaultSet.id.split('-')[2]);
         }
 
         if (defaultSet.area) {
             _this.loadArea();
-            _this.ForwardView(false);
-            _this.setNavTxt(2, defaultSet.area);
+            _this.ForwardViewTwo(true);
+            _this.setNavTxt(3, defaultSet.area, defaultSet.id.split('-')[3]);
         }
 
         $cityElement.addClass('brouce-in');
@@ -306,7 +318,6 @@
 
     CitySelect.prototype.createDOM = function () {
         var _this = this;
-
         _this.$mask = $('<div class="mask-black"></div>');
 
         _this.$cityElement = $('' +
@@ -314,7 +325,8 @@
             '    <div class="cityselect-header">' +
             '        <p class="cityselect-title">所在地区</p>' +
             '        <div class="cityselect-nav">' +
-            '            <a href="javascript:;" ></a>' +
+            '            <a href="javascript:;"></a>' +
+            '            <a href="javascript:;"></a>' +
             '            <a href="javascript:;"></a>' +
             '            <a href="javascript:;"></a>' +
             '        </div>' +
@@ -329,6 +341,9 @@
             '        <li class="cityselect-item">' +
             '            <div class="cityselect-item-box"></div>' +
             '        </li>' +
+            '        <li class="cityselect-item">' +
+            '            <div class="cityselect-item-box"></div>' +
+            '        </li>' +            
             '    </ul>' +
             '</div>');
 
@@ -340,66 +355,78 @@
             var $this = $(this);
 
             $this.addClass('crt').siblings().removeClass('crt');
-
-            $this.index() < 2 ? _this.backOffView() : _this.ForwardView(true);
+            $this.index() < 2 ? _this.backOffView() : $this.index() == 2 ? _this.ForwardView(true) : _this.ForwardViewTwo(true);
         });
     };
 
-    CitySelect.prototype.setNavTxt = function (index, txt) {
+    CitySelect.prototype.setNavTxt = function (index, txt, id) {
 
         var $nav = this.$cityElement.find('.cityselect-nav a');
 
-        index < 2 && $nav.removeClass('crt');
-
+        index < 3 && $nav.removeClass('crt');
+		
         $nav.eq(index).html(txt);
+        $nav.eq(index).attr("cid",id);
         $nav.eq(index + 1).addClass('crt').html('请选择');
         $nav.eq(index + 2).removeClass('crt').html('');
+        $nav.eq(index + 3).removeClass('crt').html('');
+        $nav.eq(index + 1).attr("cid",'');
+        $nav.eq(index + 2).attr("cid",'');
+        $nav.eq(index + 3).attr("cid",'');
     };
 
     CitySelect.prototype.backOffView = function () {
-        this.$cityElement.find('.cityselect-content').removeClass('cityselect-next')
+        this.$cityElement.find('.cityselect-content').removeClass('cityselect-next cityselect-next-two')
         .addClass('cityselect-move-animate cityselect-prev');
     };
 
     CitySelect.prototype.ForwardView = function (animate) {
-        this.$cityElement.find('.cityselect-content').removeClass('cityselect-move-animate cityselect-prev')
+        this.$cityElement.find('.cityselect-content').removeClass('cityselect-move-animate cityselect-prev cityselect-next-two')
         .addClass((animate ? 'cityselect-move-animate' : '') + ' cityselect-next');
     };
-
+    
+	CitySelect.prototype.ForwardViewTwo = function (animate) {
+        this.$cityElement.find('.cityselect-content').removeClass('cityselect-move-animate cityselect-prev cityselect-next')
+        .addClass((animate ? 'cityselect-move-animate' : '') + ' cityselect-next-two');
+    };
+    
     CitySelect.prototype.bindItemEvent = function () {
         var _this = this,
             $cityElement = _this.$cityElement;
 
         $cityElement.on('click.ydui.cityselect', '.cityselect-item-box a', function () {
             var $this = $(this);
-
             if ($this.hasClass('crt'))return;
             $this.addClass('crt').siblings().removeClass('crt');
-
+			
             var tag = $this.data('tag');
-
-            _this.setNavTxt(tag, $this.text());
+            var id = $this.attr("cid");
+            _this.setNavTxt(tag, $this.text(), id);
 
             var $nav = $cityElement.find('.cityselect-nav a'),
                 defaultSet = _this.defaultSet;
 
             if (tag == 0) {
-
-                _this.loadCity();
+                _this.loadProvance();
                 $cityElement.find('.cityselect-item-box').eq(1).find('a').removeClass('crt');
 
             } else if (tag == 1) {
-
-                _this.loadArea();
+                _this.loadCity();
                 _this.ForwardView(true);
                 $cityElement.find('.cityselect-item-box').eq(2).find('a').removeClass('crt');
 
+            } else if (tag == 2) {
+                _this.loadArea();
+                _this.ForwardViewTwo(true);
+                $cityElement.find('.cityselect-item-box').eq(3).find('a').removeClass('crt');
+
             } else {
-
-                defaultSet.provance = $nav.eq(0).html();
-                defaultSet.city = $nav.eq(1).html();
-                defaultSet.area = $nav.eq(2).html();
-
+				defaultSet.country = $nav.eq(0).html();
+                defaultSet.provance = $nav.eq(1).html();
+                defaultSet.city = $nav.eq(2).html();
+                defaultSet.area = $nav.eq(3).html();
+                defaultSet.id = $nav.eq(0).attr("cid")+'-'+$nav.eq(1).attr("cid")+'-'+$nav.eq(2).attr("cid")+'-'+$nav.eq(3).attr("cid");
+				console.log(defaultSet.id)
                 _this.returnValue();
             }
         });
@@ -410,9 +437,11 @@
             defaultSet = _this.defaultSet;
 
         _this.$element.trigger($.Event('done.ydui.cityselect', {
+            country: defaultSet.country,
             provance: defaultSet.provance,
             city: defaultSet.city,
-            area: defaultSet.area
+            area: defaultSet.area,
+            id: defaultSet.id
         }));
 
         _this.close();
@@ -434,63 +463,87 @@
 
     CitySelect.prototype.fillItems = function (index, arr) {
         var _this = this;
-
         _this.$itemBox.eq(index).html(arr).parent().animate({scrollTop: 0}, 10);
 
         _this.scrollPosition(index);
     };
-
-    CitySelect.prototype.loadProvance = function () {
+	//国家
+	CitySelect.prototype.loadCountry = function () {
         var _this = this;
 
         var arr = [];
         $.each(_this.citys, function (k, v) {
-            arr.push($('<a class="' + (v.n == _this.defaultSet.provance ? 'crt' : '') + '" href="javascript:;"><span>' + v.n + '</span></a>').data({
-                citys: v.c,
+            arr.push($('<a cid="'+v.CountryId+'" class="' + (v.CountryName == _this.defaultSet.country ? 'crt' : '') + '" href="javascript:;"><span>' + v.CountryName + '</span></a>').data({
+                citys: v.Province,
                 tag: 0
             }));
         });
+        
         _this.fillItems(0, arr);
+    };
+	//省
+    CitySelect.prototype.loadProvance = function () {
+        var _this = this;
+		var countryData = _this.$itemBox.eq(0).find('a.crt').data('citys');
+        var arr = [];
+        if (countryData == undefined) {
+        	arr.push();
+        } else {
+        	$.each(countryData, function (k, v) {	        	
+	            arr.push($('<a cid="'+v.ProvinceId+'" class="' + (v.ProvinceName == _this.defaultSet.provance ? 'crt' : '') + '" href="javascript:;"><span>' + v.ProvinceName + '</span></a>').data({
+	                citys: v.City,
+	                tag: 1
+	            }));
+	        });
+        }
+	        
+        _this.fillItems(1, arr);
     };
 
     CitySelect.prototype.loadCity = function () {
         var _this = this;
 
-        var cityData = _this.$itemBox.eq(0).find('a.crt').data('citys');
-
+        var cityData = _this.$itemBox.eq(1).find('a.crt').data('citys');
         var arr = [];
-        $.each(cityData, function (k, v) {
-            arr.push($('<a class="' + (v.n == _this.defaultSet.city ? 'crt' : '') + '" href="javascript:;"><span>' + v.n + '</span></a>').data({
-                citys: v.a,
-                tag: 1
-            }));
-        });
-        _this.fillItems(1, arr);
+        if (cityData == undefined) {
+        	arr.push();
+        } else {
+	        $.each(cityData, function (k, v) {
+	            arr.push($('<a cid="'+v.CityId+'" class="' + (v.CityName == _this.defaultSet.city ? 'crt' : '') + '" href="javascript:;"><span>' + v.CityName + '</span></a>').data({
+	                citys: v.CountyList,
+	                tag: 2
+	            }));
+	        });
+	    }
+        _this.fillItems(2, arr);
     };
 
     CitySelect.prototype.loadArea = function () {
         var _this = this;
 
-        var areaData = _this.$itemBox.eq(1).find('a.crt').data('citys');
+        var areaData = _this.$itemBox.eq(2).find('a.crt').data('citys');
 
         var arr = [];
-        $.each(areaData, function (k, v) {
-            arr.push($('<a class="' + (v == _this.defaultSet.area ? 'crt' : '') + '" href="javascript:;"><span>' + v + '</span></a>').data({tag: 2}));
-        });
+        if (areaData == undefined) {
+        	arr.push();
+        } else {
+	        $.each(areaData, function (k, v) {
+	            arr.push($('<a cid="'+v.CountyId+'" class="' + (v.CountyName == _this.defaultSet.area ? 'crt' : '') + '" href="javascript:;"><span>' + v.CountyName + '</span></a>').data({tag: 3}));
+	        });
+        }
 
         if (arr.length <= 0) {
-            arr.push($('<a href="javascript:;"><span>全区</span></a>').data({tag: 2}));
+            arr.push($('<a href="javascript:;"><span>全区</span></a>').data({tag: 3}));
         }
-        _this.fillItems(2, arr);
+        _this.fillItems(3, arr);
     };
 
     function Plugin (option) {
         var args = Array.prototype.slice.call(arguments, 1);
-
         return this.each(function () {
             var $this = $(this),
                 citySelect = $this.data('ydui.cityselect');
-
+			
             if (!citySelect) {
                 $this.data('ydui.cityselect', (citySelect = new CitySelect(this, option)));
             }

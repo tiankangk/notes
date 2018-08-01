@@ -59,6 +59,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 .cityselect-content.cityselect-move-animate { -webkit-transition: -webkit-transform .3s; transition: -webkit-transform .3s; transition: transform .3s; transition: transform .3s, -webkit-transform .3s; }
 .cityselect-content.cityselect-next { -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); }
 .cityselect-content.cityselect-prev { -webkit-transform: translate(0, 0); transform: translate(0, 0); }
+.cityselect-content.cityselect-next-two { -webkit-transform: translate(-50%, 0); transform: translate(-100%, 0); }
 .cityselect-content > .cityselect-item { display: block; height: inherit; width: 50%; /* for old android */
 -webkit-box-flex: 0; -webkit-flex: 0 0 50%; -ms-flex: 0 0 50%; flex: 0 0 50%; overflow-y: auto; -webkit-overflow-scrolling: touch; background-color: #FFF; }
 .cityselect-content > .cityselect-item::-webkit-scrollbar {
