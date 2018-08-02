@@ -9,5 +9,12 @@
             $('input').attr('capture','camera');
         }
     $('#uploader_user_header').change(function(){
-        console.log($(this)[0].files);       
+        console.log($(this)[0].files); 
+        读取上传的图片并显示出来
+         var reader=new FileReader();
+        reader.onload=function(evt){
+            console.log(evt);
+            $('.showImg').attr('src',evt.target.result);
+        }
+        reader.readAsDataURL($(this)[0].files[0]);      
     });
