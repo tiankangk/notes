@@ -1,0 +1,13 @@
+<input  id="uploader_user_header" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+判断浏览器的型号
+     var ua=navigator.userAgent.toLowerCase();
+         alert(ua);
+         
+        var isIOS=(ua.indexOf('iphone')!=-1)||(ua.indexOf('ipad')!=-1);
+        alert(isIOS);
+        if(!isIOS){
+            $('input').attr('capture','camera');
+        }
+    $('#uploader_user_header').change(function(){
+        console.log($(this)[0].files);       
+    });
