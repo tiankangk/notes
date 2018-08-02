@@ -1,0 +1,41 @@
+1、绑定数据：<div>{{test}}</div>
+
+2、绑定事件：bindtap="eventName"
+
+3、改变data里面的内容：this.setData({test:'val'});
+
+4、条件标签：
+            <view wx:if="{{val}}"></view>
+            <view wx:else="{{val}}"></view>
+
+5、取data里面的值：
+        this.data.val
+
+6、循环数据：
+<view wx:for="{{list}}" wx:for-item="newItem" wx:for-index="newIndex">
+    {{index}}-{{item}}
+</view>
+
+7、加载模板：
+<include src="相对路径" />
+
+在要加载的模板里面定义模板
+<template name="test1">内容{{test}}</template>
+<template name="test2">内容</template>
+
+引入：
+<import src="相对路径">
+<template is="test1" />
+
+设置数据:
+<template is="test1" data="{{test:"内容"}}"/>
+
+8、点击事件：catchtap绑定的事件不会冒泡，bindtap绑定的事件会冒泡
+<view bindtap="click" data-id="title"></view>
+click:function(event){
+    event里面有很多属性
+        currentTarget表示绑定事件的元素
+        currentTarget里面有个属性dataset里面包含元素里面的属性data-id
+        target触发事件的源
+}
+在触发的点击事件里面
