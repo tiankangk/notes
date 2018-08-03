@@ -38,4 +38,41 @@ click:function(event){
         currentTarget里面有个属性dataset里面包含元素里面的属性data-id
         target触发事件的源
 }
-在触发的点击事件里面
+
+9、在子页面的js里面可以通过 var app=getApp();得到app里面的属性
+
+10、跳转页面的方法：在js里面
+跳转后当前页面隐藏
+wx.navigateTo({
+    url:'../logs/logs'
+});
+
+<navigator url="../logs/logs?id=1" redirect></navigator>和a标签的用法一样
+
+
+跳转后当前页面销毁
+wx.redirectTo({
+    url:'../logs/logs'
+});
+
+// 跳转到tabBar页面（在app.json中注册过的tabBar页面），同时关闭其他非tabBar页面。
+wx.switchTab({
+  url: 'page/index/index'
+})
+
+11、传递参数：
+wx.navigateTo({
+    url:'../logs/logs?id=1'
+});
+
+取值在onload:function(options){
+    options里面有我们要的数据
+}
+
+12、取input的值
+    <input bindinput="username">
+
+    username:function(event){
+        event.detail.value
+    }
+
