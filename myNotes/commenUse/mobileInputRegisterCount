@@ -1,0 +1,4 @@
+			$('input').bind('input propertychange', function() {
+				var self=$(this);
+				self.val(self.val().replace(/[^\d]/g,''));
+});
