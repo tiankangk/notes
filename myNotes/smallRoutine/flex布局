@@ -1,0 +1,37 @@
+display:flex;
+flex-direction:row/colum;决定元素的排列方向
+
+flex-wrap:wrap/nowrap/wrap-reverse反转;决定元素如何换行
+
+flex-flow:row nowrap; flex-direction和flex-wrap的简写
+
+justify-content:center/flex-start/flex-end/space-around/space-between; 元素在主轴上的对齐方式
+
+align-items:center/flex-start/flex-end/stretch/baseline;元素在交叉轴的对齐方式
+stretch如果元素没有设置高度，子元素会自动占满整个容器
+baseline以文字的基线对齐
+
+flex-grow:当有多余空间时，元素的放大比例
+
+flex-shrink当空间不足时，元素的缩小比例
+
+flex-basis:300px;设置多少元素的尺寸就是多少，元素在主轴上占据的空间
+
+flex是grow/shrink/basis的简写
+
+order定义元素的排列顺序
+
+align-self:flex-end/center/定义元素自身的对齐方式
+
+
+属性选择器
+E[attr]只要有这个属性
+E[attr="value"]
+E[attr~="value"]可能有多个值只要其中有一个值等于value
+E[attr|="value"]必须是以value-开头的
+E[attr^="value"]必须以value开头
+E[attr$="value"]必须以value结尾
+E[attr*="value"]包含value
+
+伪类选择器
+
