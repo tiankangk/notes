@@ -28,10 +28,6 @@
             list-style: none;
         }
 
-
-
-
-
         .input_list {
             height: 40px;
             display: table;
@@ -126,60 +122,70 @@
             <li>css</li>
             <li>js</li>
         </ul>
-        <span class="down">=</span>
+        <span class="down">x</span>
     </div>
 
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script>
-        !function () {
-            $('.input_list .down').on('click', function () {
-                $('.input_drop').toggleClass('active');
-            });
-            // 向父元素里面增加inpu
-            function add_input(self) {
-                var index = self.index();
-                if (self.hasClass('active')) {
-                    var choose_content = self.html();
-                    var content = `<div data-index="${index}" class="input_container">
+        (function ($) {
+            $.fn.more_condition_input = function () {
+                var self_main = $(this);
+                console.log(self_main);
+
+                // 所有方法
+                var methods = {
+                    add_input: function (self) {
+                        var index = self.index();
+                        if (self.hasClass('active')) {
+                            var choose_content = self.html();
+                            var content = `<div data-index="${index}" class="input_container">
                                         <input value="${choose_content}" type="text" class="input_item">
                                         <span data-close="${index}" class="close">x</span>
                                     </div>`;
-                    $('.input_content').append(content);
-                } else {
+                            self_main.find('.input_content').append(content);
+                        } else {
+                            $('[data-index=' + index + ']').remove();
+                        }
+
+                    },
+                    judge_notice: function () {
+                        var judge = self_main.find('.input_drop>li').hasClass('active');
+                        if (judge) {
+                            self_main.find('.notice').hide();
+                        } else {
+                            self_main.find('.notice').show();
+                        }
+                    }
+                }
+                self_main.on('click', '.down', function () {
+                    $('.input_drop').toggleClass('active');
+                });
+
+                // 选择条件
+                self_main.find('.input_drop').on('click', 'li', function () {
+                    var self = $(this);
+                    self.toggleClass('active');
+                    methods.judge_notice();
+                    methods.add_input(self);
+
+                });
+                // 输入框获得焦点时隐藏弹出框
+                self_main.on('focus', '.input_item', function () {
+                    self_main.find('.input_drop').removeClass('active');
+                })
+                self_main.on('click', '.close', function () {
+                    var self = $(this);
+                    var index = self.attr('data-close');
                     $('[data-index=' + index + ']').remove();
-                }
+                    self_main.find('.input_drop>li').eq(index).removeClass('active');
+                    methods.judge_notice();
+
+                });
 
             }
-            // 判断提示的条件是否显示
-            function judge_notice() {
-                var judge = $('.input_drop>li').hasClass('active');
-                if (judge) {
-                    $('.notice').hide();
-                } else {
-                    $('.notice').show();
-                }
-            }
-            $('.input_drop').on('click', 'li', function () {
-                var self = $(this);
-                self.toggleClass('active');
-                judge_notice();
-                add_input(self);
-
-            });
-
-            $('.input_list').on('focus', '.input_item', function () {
-                $('.input_drop').removeClass('active');
-
-            });
-            $('.input_list').on('click', '.close', function () {
-                var self = $(this);
-                var index = self.attr('data-close');
-                $('[data-index=' + index + ']').remove();
-                $('.input_drop>li').eq(index).removeClass('active');
-                judge_notice();
-
-            });
-        }()
+        })(jQuery);
+        $('.input_list').more_condition_input();
+       
     </script>
 </body>
 
