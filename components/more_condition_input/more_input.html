@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+
+
+
+
+        .input_list {
+            height: 40px;
+            display: table;
+            position: relative;
+            border: 1px solid lightgrey;
+        }
+
+        .input_list .input_item {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .input_list .input_content {
+            line-height: 34px;
+            height: 100%;
+            float: left;
+        }
+
+        .input_list .input_container {
+            height: 100%;
+            width: 300px;
+            float: left;
+            position: relative;
+        }
+
+        .input_list .input_container input {
+            width: 100%;
+            height: 100%;
+            padding: 0 20px;
+        }
+
+        .input_list .input_container:hover .close {
+            display: block;
+        }
+
+        .input_list .input_container .close {
+            position: absolute;
+            right: 0;
+            line-height: 40px;
+            top: 0;
+            display: none;
+        }
+
+        .input_list .notice {
+            padding: 0 20px;
+        }
+
+        .input_list .input_drop {
+            display: none;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 50px;
+
+            border: 1px solid #e4e7ed;
+            border-radius: 4px;
+            background-color: #fff;
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+            box-sizing: border-box;
+            padding: 6px 20px;
+
+        }
+
+        .input_list .input_drop>li {
+            height: 34px;
+            line-height: 34px;
+        }
+
+        .input_list .input_drop.active {
+            display: block;
+        }
+
+        .input_list .input_drop>li.active {
+            color: #409eff;
+        }
+
+
+        .input_list .down {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input_list clearfix">
+        <div class="input_content clearfix">
+            <p class="notice">请选择搜索条件</p>
+        </div>
+        <ul class="input_drop">
+            <li>html</li>
+            <li>css</li>
+            <li>js</li>
+        </ul>
+        <span class="down">=</span>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        !function () {
+            $('.input_list .down').on('click', function () {
+                $('.input_drop').toggleClass('active');
+            });
+            // 向父元素里面增加inpu
+            function add_input(self) {
+                var index = self.index();
+                if (self.hasClass('active')) {
+                    var choose_content = self.html();
+                    var content = `<div data-index="${index}" class="input_container">
+                                        <input value="${choose_content}" type="text" class="input_item">
+                                        <span data-close="${index}" class="close">x</span>
+                                    </div>`;
+                    $('.input_content').append(content);
+                } else {
+                    $('[data-index=' + index + ']').remove();
+                }
+
+            }
+            // 判断提示的条件是否显示
+            function judge_notice() {
+                var judge = $('.input_drop>li').hasClass('active');
+                if (judge) {
+                    $('.notice').hide();
+                } else {
+                    $('.notice').show();
+                }
+            }
+            $('.input_drop').on('click', 'li', function () {
+                var self = $(this);
+                self.toggleClass('active');
+                judge_notice();
+                add_input(self);
+
+            });
+
+            $('.input_list').on('focus', '.input_item', function () {
+                $('.input_drop').removeClass('active');
+
+            });
+            $('.input_list').on('click', '.close', function () {
+                var self = $(this);
+                var index = self.attr('data-close');
+                $('[data-index=' + index + ']').remove();
+                $('.input_drop>li').eq(index).removeClass('active');
+                judge_notice();
+
+            });
+        }()
+    </script>
+</body>
+
+</html>
