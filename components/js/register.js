@@ -115,6 +115,6 @@
                 resultFun.testAll();
                 break;
         }
-        return this;
+        return resultFun.testAll();
     }
 })(jQuery);
