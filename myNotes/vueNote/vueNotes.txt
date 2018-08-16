@@ -58,3 +58,15 @@ export default {
     <span v-if="isShowCode"  @click.stop="sendCode">发送验证码</span>
 
 
+v-cloak解决刷新的时候{{}}的闪现问题
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+<p v-cloak>{{msg}}</p>
+
+router-link的点击事件的后面要加上native 
+<router-link @click.navtive="change()"></router-link>
+
+
