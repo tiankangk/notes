@@ -69,4 +69,16 @@ v-cloak解决刷新的时候{{}}的闪现问题
 router-link的点击事件的后面要加上native 
 <router-link @click.navtive="change()"></router-link>
 
+给循环的对象添加不存在的属性
+ <li v-for="(val,ind) in shop_list" :key="ind" class="shop_item clearfix">
+    <div @click="change('val')" class="active" :class="val.checked"></div>
+ </li>
+ change(val){
+     if(typeof val.checked){
+         this.$set(val,'checked',true)
+     }else{
+         val.checked=!val.checked
+     }
+ }
+
 
