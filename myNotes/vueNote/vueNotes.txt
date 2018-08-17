@@ -82,3 +82,32 @@ router-link的点击事件的后面要加上native
  }
 
 
+ 路由传参
+ 说明：to前面要加":"
+   <router-link :to="{path:'/shop_detail',query:{id:val.id}}">
+
+   页面展示：$route.query.id
+
+js里面：this.$route.query.id
+
+
+ <router-link :to="{name:'Shop_detail',params:{id:val.id}}">
+ 页面展示：$route.params.id
+
+js里面：this.$route.params.id
+
+
+js路由跳转：
+this.$router.push({
+        path:'/shop_detail'
+        query:{
+          id:id
+        }
+      })
+
+      this.$router.push({
+        name:'Shop_detail'
+        params:{
+          id:id
+        }
+      })
