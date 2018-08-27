@@ -9,3 +9,21 @@
 包：包是一个文件夹，它将模块封闭起来，用于发布更新依赖管理和版控制。
 
 I/O：是输入输出的意思，指的是计算机和人或者数据处理系统之间的通信。可以将I/O 想成是数据在一次输入和一次输出之间的移动。
+
+导出模块：
+function a(){}  exports.a=a;
+
+加载模块：var a=require('./a')
+
+如果是在node_modules文件夹下，直接引用文件名var a=require('a')
+
+
+如果是在其他名的文件夹,会默认找那个文件夹下的index.js var a=require('./test');
+
+如果是在其他名的文件夹,当前文件夹下没有index.js，在当前文件夹下新建packet.json文件配置
+{
+    "name":"file_modlule",
+    "version":"1.1.1",
+    "main":"file_modlule.js"
+}
+main表示指定加载模块的名称
