@@ -2,6 +2,8 @@
 
 酒店管理后台网址：http://card.kongmings.com/
 
+纳加租赁：http://wx.51fqs.cn/app/index.php?i=2&c=entry&do=home&m=smile_najia&id=17
+
 svn下载地址：svn://101.201.234.151/smile_fruits
 
 应用管理网站：web.kongmings.com

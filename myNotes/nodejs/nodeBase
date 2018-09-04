@@ -27,3 +27,5 @@ function a(){}  exports.a=a;
     "main":"file_modlule.js"
 }
 main表示指定加载模块的名称
+
+
