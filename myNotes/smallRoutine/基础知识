@@ -76,4 +76,14 @@ wx.navigateTo({
         event.detail.value
     }
 
+13、登录页面，判断是否授权登录
+  <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="login_btn">进入商城</button>
+
+  open-type="getUserInfo"是调用是否授权登录
+
+  getUserInfo: function (e) {
+      用户首次进入，点击了确认授权e.detail.userInfo就会有值，否则点击不授权e.detail.userInfo就没有值，当用户刷新页面第二次点击如果是已经授权过e.detail.userInfo也会有值  
+  }
+
+
 
