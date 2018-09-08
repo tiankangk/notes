@@ -1,0 +1,24 @@
+var  url=app.util.url('entry/wxapp/uploading',{m:'后台模块的名字'});
+
+
+ wx.uploadFile({
+          url: url,
+          filePath: res.tempFilePaths[0],
+          name: 'file',
+          formData: { avatar: avatarSrc},
+          header:{
+            // 'content-type': 'application',
+            'skey': wx.getStorageSync('getstoreskey')
+          },
+          success:function(info){
+            console.log(info)
+            // if(JSON.parse(info.statusCode)=="200"){
+            //   that.setData({
+            //     'UserInfodata.image': JSON.parse(info.data).data.image,
+            //     'Headimg': JSON.parse(info.data).data.image
+            //   })
+            // }
+          },
+        })
+      },
+    })
