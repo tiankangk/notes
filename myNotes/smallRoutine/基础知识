@@ -85,5 +85,8 @@ wx.navigateTo({
       用户首次进入，点击了确认授权e.detail.userInfo就会有值，否则点击不授权e.detail.userInfo就没有值，当用户刷新页面第二次点击如果是已经授权过e.detail.userInfo也会有值  
   }
 
+14、scroll-view的upper-threshold的用法
+  <scroll-view bindscrolltoupper="scroll_touch" upper-threshold="50" scroll-y="true" scroll-x="true"   class="scroll">  
+
 
 

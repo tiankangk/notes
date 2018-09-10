@@ -3,6 +3,7 @@
 1、$.each();不能遍历关联数组
 
 2、function a(){}  function b(){}   a.apply(b,[1,2]);  a中的this指向b
+将a对象的构造函数绑定在b对象上，也就是b能用a中的属性
 
 3、正则   
     ^起始的位置
