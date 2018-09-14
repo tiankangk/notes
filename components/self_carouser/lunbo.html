@@ -170,11 +170,13 @@
         </div>
     <script>
         function Carousel(option) {
+            this.carousel=document.querySelector(option.carousel);
             this.carousel_list = document.querySelectorAll(option.carousel + ' .carousel_list>li');
             this.left_page = document.querySelectorAll(option.carousel + ' .left_page')[0];
             this.right_page = document.querySelectorAll(option.carousel + ' .right_page')[0];
             this.page_list = document.querySelectorAll(option.carousel + ' .page_list>li');
             this.len = this.carousel_list.length;
+            this.timer=null;
             this.index = 0;
             this.init();
         }
@@ -183,6 +185,9 @@
                 this.left_click();
                 this.right_click();
                 this.page_click();
+                this.mouser_enter();
+                this.mouser_leave();
+                this.start();
             },
             change_style: function () {
                 var that = this;
@@ -218,6 +223,31 @@
                     }
                 }
 
+            },
+            start:function(){
+                var that=this;
+                that.timer=setInterval(function(){
+                    that.index=that.index<that.len - 1?that.index+1:0;
+                    that.change_style();
+                },1000);
+            },
+            pause:function(){
+                clearInterval(this.timer);
+                this.timer=null;
+            },
+            mouser_enter:function(){
+                var that=this;
+                that.carousel.onmouseenter=function(){
+                    that.pause();
+                }
+               
+            },
+            mouser_leave:function(){
+                var that=this;
+                that.carousel.onmouseleave=function(){
+                    that.start();
+                }
+              
             }
         }
 
