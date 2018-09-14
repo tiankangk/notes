@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lunbo</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .clear:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .clear {
+            zoom: 1;
+        }
+
+        .carousel {
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .carousel_list {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel_list>li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 99;
+            display: none;
+        }
+
+        .carousel_list>li:first-child {
+            display: block;
+        }
+
+        .carousel_list>li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .left_page {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            z-index: 100;
+            width: 100px;
+            height: 30px;
+            background: lightblue;
+            color: white;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .right_page {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            z-index: 100;
+            width: 100px;
+            height: 30px;
+            background: lightblue;
+            color: white;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .page_list {
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            z-index: 101;
+        }
+
+        .page_list>li {
+            width: 30px;
+            height: 30px;
+            float: left;
+            margin: 0 10px;
+            background: coral;
+            border-radius: 50%;
+            color: white;
+            line-height: 30px;
+            text-align: center;
+
+        }
+
+        .page_list>li.on {
+            background: chartreuse;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel carousel1">
+        <ul class="carousel_list">
+            <li>
+                <img src="./pic1.png" alt="">
+            </li>
+            <li>
+                <img src="./pic2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./pic3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./pic4.jpg" alt="">
+            </li>
+        </ul>
+        <div class="left_page">＜</div>
+        <div class="right_page">＞</div>
+        <ul class="page_list">
+            <li class="on">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+
+    <div class="carousel carousel2">
+            <ul class="carousel_list">
+                <li>
+                    <img src="./pic1.png" alt="1">
+                </li>
+                <li>
+                    <img src="./pic2.jpg" alt="2">
+                </li>
+                <li>
+                    <img src="./pic3.jpg" alt="3">
+                </li>
+                <li>
+                    <img src="./pic4.jpg" alt="4">
+                </li>
+            </ul>
+            <div class="left_page">＜</div>
+            <div class="right_page">＞</div>
+            <ul class="page_list">
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+    <script>
+        function Carousel(option) {
+            this.carousel_list = document.querySelectorAll(option.carousel + ' .carousel_list>li');
+            this.left_page = document.querySelectorAll(option.carousel + ' .left_page')[0];
+            this.right_page = document.querySelectorAll(option.carousel + ' .right_page')[0];
+            this.page_list = document.querySelectorAll(option.carousel + ' .page_list>li');
+            this.len = this.carousel_list.length;
+            this.index = 0;
+            this.init();
+        }
+        Carousel.prototype = {
+            init: function () {
+                this.left_click();
+                this.right_click();
+                this.page_click();
+            },
+            change_style: function () {
+                var that = this;
+                for (var i = 0; i < that.len; i++) {
+                    that.carousel_list[i].style.display = 'none';
+                    that.page_list[i].className = '';
+                }
+
+                that.carousel_list[that.index].style.display = 'block';
+                that.page_list[that.index].className = 'on';
+            },
+            left_click: function () {
+                var that = this;
+                that.left_page.onclick = function () {
+                    that.index=that.index>0?that.index-1:that.len-1;
+                    that.change_style();
+                };
+            },
+            right_click: function () {
+                var that = this;
+                that.right_page.onclick = function () {
+                    that.index=that.index<that.len - 1?that.index+1:0;
+                    that.change_style();
+                };
+            },
+            page_click: function () {
+                var that = this;
+                for (var i = 0; i < that.len; i++) {
+                    that.page_list[i].index=i;
+                    that.page_list[i].onclick = function () {
+                        that.index=this.index;
+                        that.change_style();
+                    }
+                }
+
+            }
+        }
+
+
+        var carousel1 = new Carousel({ carousel: '.carousel1' });
+
+
+          var carousel1 = new Carousel({ carousel: '.carousel2' });
+    </script>
+</body>
+
+</html>
