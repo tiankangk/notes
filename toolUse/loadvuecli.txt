@@ -40,7 +40,8 @@ npm i vue-resource --save
   npm install vuex -S
 
   
-移动端的自适应
+移动端的自适应1rem的配置
+
 1、npm i lib-flexible -S
   npm i px2rem-loader -D
 
@@ -69,4 +70,40 @@ var px2remLoader = {
 
 5、generateLoaders函数里加上px2remLoader
 const loaders = options.usePostCSS ? [cssLoader, postcssLoader,px2remLoader] : [cssLoader,px2remLoader]
+
+
+
+
+移动端的自适应2vw的配置
+
+ npm i  postcss-px-to-viewport postcss-write-svg postcss-cssnext  cssnano --save
+
+ npm i cssnano-preset-advanced --save-dev
+
+
+接下来在.postcssrc.js文件对新安装的PostCSS插件进行配置：
+ module.exports = {
+  "plugins": {
+    "postcss-import": {},
+    "postcss-url": {},
+    "postcss-write-svg": {
+      utf8: false
+    },
+    "postcss-cssnext": {},
+    "postcss-px-to-viewport": {
+      viewportWidth: 750,   // 视窗的宽度，对应的是我们设计稿的宽度，一般是750
+      viewportHeight: 1334, // 视窗的高度，根据750设备的宽度来指定，一般指定1334，也可以不配置
+      unitPrecision: 3,     // 指定`px`转换为视窗单位值的小数位数
+      viewportUnit: "vw",   //指定需要转换成的视窗单位，建议使用vw
+      selectorBlackList: ['.ignore', '.hairlines'],// 指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名
+      minPixelValue: 1,     // 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值
+      mediaQuery: false     // 允许在媒体查询中转换`px`
+    },
+    "cssnano": {
+      preset: "advanced",
+      autoprefixer: false,
+      "postcss-zindex": false
+    }
+  }
+}
 
