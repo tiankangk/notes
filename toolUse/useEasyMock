@@ -1,0 +1,25 @@
+{
+  success: true,
+  data: {
+    default: '用户名错误',
+    _req: function({
+      _req
+    }) {
+      return _req
+    },
+    name: function({
+      _req
+    }) {
+      if (_req.body.name === 'admin') {
+        return _req.body.name
+      } else {
+        return this.default
+      }
+    }
+  }
+}
+
+作者：ziclee
+链接：https://www.jianshu.com/p/63ed4ba146dc
+來源：简书
+简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
