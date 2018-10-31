@@ -1,0 +1,46 @@
+nodeJS安装网址：https://nodejs.org/en/download/
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+node -v 看node的版本
+npm -v 看npm的版本
+npm install -g npm  升级npm
+
+cnpm install -g cnpm
+
+cnpm list 看安装的模块
+
+cd 路径 进入目录
+
+
+vue脚手架的安装
+npm install -g vue-cli
+
+vue init webpack-simple demo(项目名)
+
+vue init webpack demo(项目名)较复杂的
+
+npm i安装所有依赖的包
+
+npm run dev启动项目
+
+
+
+
+index.html:整个html页面
+
+main.js 引用在index.html页面的js文件，用来创建vue实例，公用的css和jss文件都能放在里面
+
+app.vue 存在index.html 最外面的组件，公共的头部和尾部都能放在里面
+
+views 存放每一个单独的主页面的
+
+styles 存共用样式的文件夹
+
+rouer/index.js 管理路由的文件
+
+components 存放子组件的文件夹
+
+assets 放静态文件的文件夹
+
+api  管理后台请求的文件夹

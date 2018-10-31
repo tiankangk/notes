@@ -1,0 +1,22 @@
+一笑租赁pc网址：http://web.kongmings.com/app/index.php?i=4&c=entry&do=shop_index&m=smile_lease
+
+酒店管理后台网址：http://card.kongmings.com/
+
+纳加租赁：http://wx.51fqs.cn/app/index.php?i=2&c=entry&do=home&m=smile_najia&id=17
+
+svn下载地址：svn://101.201.234.151/smile_fruits
+
+应用管理网站：web.kongmings.com
+账号：13554686571
+密码：13554686571
+
+微信小程序AppSecret：2274df6342a2c831fe6c96aa8d78917a 
+	 AppID：wx1277daeea79a3994
+
+
+
+
+
+
+
+

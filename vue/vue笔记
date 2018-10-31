@@ -1,0 +1,58 @@
+阻止事件的默认行为和冒泡
+    <span v-if="isShowCode"  @click.prevent="sendCode">发送验证码</span>
+    <span v-if="isShowCode"  @click.stop="sendCode">发送验证码</span>
+
+
+v-cloak解决刷新的时候{{}}的闪现问题
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+<p v-cloak>{{msg}}</p>
+
+router-link的点击事件的后面要加上native 
+<router-link @click.navtive="change()"></router-link>
+
+给循环的对象添加不存在的属性
+ <li v-for="(val,ind) in shop_list" :key="ind" class="shop_item clearfix">
+    <div @click="change('val')" class="active" :class="val.checked"></div>
+ </li>
+ change(val){
+     if(typeof val.checked){
+         this.$set(val,'checked',true)
+     }else{
+         val.checked=!val.checked
+     }
+ }
+
+
+ 路由传参
+ 说明：to前面要加":"
+   <router-link :to="{path:'/shop_detail',query:{id:val.id}}">
+
+   页面展示：$route.query.id
+
+js里面：this.$route.query.id
+
+
+ <router-link :to="{name:'Shop_detail',params:{id:val.id}}">
+ 页面展示：$route.params.id
+
+js里面：this.$route.params.id
+
+
+js路由跳转：
+this.$router.push({
+        path:'/shop_detail'
+        query:{
+          id:id
+        }
+      })
+
+      this.$router.push({
+        name:'Shop_detail'
+        params:{
+          id:id
+        }
+      })
