@@ -219,6 +219,7 @@ body {
   -webkit-user-select: none;
   user-select: none;
   font: Oswald, 'Open Sans', Helvetica, Arial, sans-serif;
+  height:100%;
 }
 
 body {
