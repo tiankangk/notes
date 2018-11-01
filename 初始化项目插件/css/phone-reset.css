@@ -220,6 +220,8 @@ body {
   user-select: none;
   font: Oswald, 'Open Sans', Helvetica, Arial, sans-serif;
   height:100%;
+  width:100%;
+  background:#ffffff;
 }
 
 body {
