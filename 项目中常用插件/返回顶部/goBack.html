@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main {
+            width: 100%;
+            height: 2000px;
+            background: red;
+            color: blue;
+        }
+
+        .goBack {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            background: deepskyblue;
+            height: 30px;
+            color: darkslategrey;
+        }
+
+        .item {
+            width: 100%;
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="goBack">goBack</span>
+    <div class="main">
+        <div style="background:darksalmon" class="item">item</div>
+        <div style="background:darkcyan" class="item">item</div>
+        <div style="background:darkorange" class="item">item</div>
+        <div style="background:aqua" class="item">item</div>
+        <div style="background:goldenrod" class="item">item</div>
+        <div style="background:navy" class="item">item</div>
+    </div>
+    <script>
+        function goBackTop(options) {
+            this.speed = options.speed || 10,
+                this.time = options.time || 5;
+            if (options.el) {
+                this.el = document.querySelector(options.el);
+                this.init();
+            }         
+        }
+        goBackTop.prototype = {
+            init: function () {
+                this.goBack();
+            },
+            goBack: function () {
+                var self = this;
+                self.el.onclick = function () {
+                    var scrollSize = document.documentElement.scrollTop;
+                    var timer = setInterval(function () {
+                        if (scrollSize > 0) {
+                            scrollSize = scrollSize - self.speed;
+                            document.documentElement.scrollTop = scrollSize;
+                        } else {
+                            clearInterval(timer);
+                            timer = null;
+                        }
+                    }, self.time);
+                };
+            }
+        }
+
+
+        new goBackTop({
+            speed: 10,
+            time: 5,
+            el: '.goBack'
+        });
+    </script>
+</body>
+
+</html>
