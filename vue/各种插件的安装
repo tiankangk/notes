@@ -1,4 +1,11 @@
 
+******************************************************移动端点击事件延迟300毫秒解决办法***********************************************
+安装fastclick
+npm install fastclick --save
+在main.js引入  import fastClick from 'fastclick'
+
+fastClick.attach(document.body)
+
 
 ******************************************************sass的安装***********************************************
 npm i node-sass sass-loader --save-dev
