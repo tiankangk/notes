@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <form action="post" id="formName">
+    <div>
+      <input type="text" data-name="isEmp" name="val1" class="test">
+    </div>
+    <div>
+      <input type="text" data-name="isEmp" name="val2" class="test">
+    </div>
+    <div>
+      <input type="text" id="diff" data-name="isEmp" name="val3" class="test">
+    </div>
+    <!-- <div>
+      <input type="text"  data-name="isDiff" name="val4" class="test">
+    </div> -->
+
+    <button type="submit" class="btn">click</button>
+  </form>
+  <script src="./jquery-3.3.1.min.js"></script>
+  <script src="./jquery.form.js"></script>
+  <script src="./register.js"></script>
+  <script>
+   new SubmitForm({
+    formName: $('#formName'),
+    url: '',
+    // contrastEl:$('#diff'),//验证值是否一致,用来判断元素，可选
+    success: function (data) {
+       
+    }
+});
+  </script>
+</body>
+
+</html>

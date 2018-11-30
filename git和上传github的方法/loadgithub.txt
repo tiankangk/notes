@@ -34,3 +34,12 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 
 git remote rm origin  删除远程分支
+
+切换分支：git checkout 分支名
+
+查看状态：git status
+
+合并分支
+切换到主分支：git checkout master
+合并分支：git merge origin/index-swiper
+查看所有分支：git branch -vv

@@ -15,6 +15,13 @@ npm i node-sass sass-loader --save-dev
 
 
 
+******************************************************stylus的安装***********************************************
+npm i stylus --save
+
+npm i stylus-loader --save
+
+<style lang="scss" scoped="" type="text/css"></style>
+
 
 
 
@@ -164,4 +171,9 @@ const loaders = options.usePostCSS ? [cssLoader, postcssLoader,px2remLoader] : [
 http://jspang.com/
 
 npm i vue-resource --save
+
+******************************************************移动端轮播插件***********************************************
+在github上搜索vue-awesome-swiper
+
+
 
