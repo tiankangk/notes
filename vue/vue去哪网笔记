@@ -1,0 +1,40 @@
+1、 var vm = new Vue({
+              el: '#app',
+              template: '<div>这是模板内容</div>'
+            })
+vue实例里面的属性都可以通过 vm.$el得到
+
+如果vue有template属性页面会渲染template的内容，反之会渲染el里面的内容
+
+改变对象的属性值： Vue.set(obj,"index",'val')
+  obj要改变属性的对象，index要改变的属性，val要改变的值
+
+row是一个组件
+  <table>
+    <tbody>
+      <tr is="row"></tr>正确写法
+      <row></row>错误写法
+    </tbody>
+  </table>
+
+  <parent>父组件
+    <child @click.native="handleClick"></child>子组件
+  </parent>
+  handleClick是父组件里面定义的事件
+  在child直接写@click表示监听child内部的事件
+  @click.native表示直接触发父组件里面定义的事件
+
+<router-link tap="li"></router-link>
+
+在vue里面用window全局事件在当前组件被隐藏的时候，在deactivated钩子函数里面要对该事件解绑
+
+<keep-alive exclude="detail"><router-view /></keep-alive>
+
+在keep-alive里面包裹的组件都会被缓存，被缓存的组件在组件显示的时候mounted函数不会被执行，activated函数会被执行，要想某个组件不被缓存加上exclude="组件名"
+
+
+
+
+
+
+

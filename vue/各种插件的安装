@@ -1,6 +1,6 @@
 
 ******************************************************移动端点击事件延迟300毫秒解决办法***********************************************
-安装fastclick
+安装fastclick,解决移动端点击事件300ms的延迟
 npm install fastclick --save
 在main.js引入  import fastClick from 'fastclick'
 
