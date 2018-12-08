@@ -1,0 +1,17 @@
+1、下载完成后，安装phpstudy
+
+2、配置域名：
+  其他选项菜单->打开host-->127.0.0.1 local.tp5.com
+
+3、配置站点：
+  其他选项菜单->打开host->站点域名管理
+  配置：网站域名：local.tp5.com 网站目录：tp5/public
+
+4、在config->database.php
+    数据库名字：database
+    hostport: 3306
+    prefix: 'blog_'
+
+数据库
+MySQL管理器->phpMyAdmin
+用户名： root 和密码:root
