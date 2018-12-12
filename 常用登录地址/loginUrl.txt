@@ -12,6 +12,8 @@ svn下载地址：svn://101.201.234.151/smile_fruits
 账号：kongming   
 密码：kongming666
 
+孔明服务器svn地址：
+svn://39.105.198.178/tiankang
 ip:39.105.198.178
 账号：tiankang
 密码：tiankang
