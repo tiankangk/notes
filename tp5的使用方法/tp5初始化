@@ -15,3 +15,11 @@
 数据库
 MySQL管理器->phpMyAdmin
 用户名： root 和密码:root
+
+链接数据库
+  在application/index新建model
+  在cmd中打开该项目
+  要先安装php运行环境
+  运行php think make:model index/Index
+
+安装php运行环境：把phpstudy/PHPTutorial/php/php-7.0.12-nts(对应的php运行的版本号)放入环境变量中
