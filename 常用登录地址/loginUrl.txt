@@ -2,7 +2,15 @@
 
 酒店管理后台网址：http://card.kongmings.com/
 
+艾克斯后台： http://xgo.kongmings.com/index.php/admin/login/login.html
+
+集装箱： http://web.kongmings.com/app/index.php?i=4&c=entry&do=shop_index&m=smile_titan_lease
+
+小程序：搜索 附近易租
+
 纳加租赁：http://wx.51fqs.cn/app/index.php?i=2&c=entry&do=home&m=smile_najia&id=17
+
+
 
 svn下载地址：svn://101.201.234.151/smile_fruits
 
