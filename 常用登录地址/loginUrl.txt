@@ -16,6 +16,14 @@
 
 svn下载地址：svn://101.201.234.151/smile_fruits
 
+PC租赁ftp地址：ip:47.92.201.29
+账号：zulinpc 密码：zulinpc888
+
+前台登录地址：http://pc.kongmings.com/app/index.php?i=1&c=entry&do=shop_index&m=smile_lease
+后台登录地址：http://pc.kongmings.com/
+账号：zulinpc 密码：zulinpc8888
+
+
 百度云账号：18086491801
 
 孔明服务器宝塔地址：http://39.105.198.178:8888   
