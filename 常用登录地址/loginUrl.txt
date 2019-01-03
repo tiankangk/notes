@@ -49,20 +49,29 @@ xshell:账号：root
 
 
 
-	去哪了： https://pan.baidu.com/s/1DHcsSGcg755WJTtG65MVdg   提取码：3c1b   
+去哪了： https://pan.baidu.com/s/1DHcsSGcg755WJTtG65MVdg   提取码：3c1b   
 
 
-	仿饿了： https://pan.baidu.com/s/1fkuNcf2Q6WtCz2zUzBWDCA  提取码：typ8
+仿饿了： https://pan.baidu.com/s/1fkuNcf2Q6WtCz2zUzBWDCA  提取码：typ8
 
 
-	es6写的一个彩票的项目：https://pan.baidu.com/s/1afbXv6qGYOsRUhGk7a31XQ   提取码：heuv
+es6写的一个彩票的项目：https://pan.baidu.com/s/1afbXv6qGYOsRUhGk7a31XQ   提取码：heuv
 
 mongodb：https://pan.baidu.com/s/1kxOjxwl4ptip3nbByq_fQw  提取码：14sm 
 
 
-   ng 开发知乎：https://pan.baidu.com/s/1KzgBlBr9ES8YtV9PUS-JiA    提取码：6xv1 
+ng 开发知乎：https://pan.baidu.com/s/1KzgBlBr9ES8YtV9PUS-JiA    提取码：6xv1 
 
+不限速百度网盘下载地址：http://pandownload.com/
 
+翻墙软件下载地址：https://github.com/shadowsocks/shadowsocks-windows/releases
+
+shadowsocks的配置：
+	服务器地址：s.mynogate.cc
+	服务器端口：9898
+	密码：xiangyue98
+	加密：rc4-md5
+	代理端口：1080
 
 
 
