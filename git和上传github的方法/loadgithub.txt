@@ -43,3 +43,5 @@ git remote rm origin  删除远程分支
 切换到主分支：git checkout master
 合并分支：git merge origin/index-swiper
 查看所有分支：git branch -vv
+
+在github用git协同合作：https://www.cnblogs.com/wawahaha/p/5171187.html
