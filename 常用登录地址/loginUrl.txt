@@ -46,6 +46,10 @@ xshell:账号：root
 微信小程序AppSecret：2274df6342a2c831fe6c96aa8d78917a 
 	 AppID：wx1277daeea79a3994
 
+陈裕服务器地址：
+    ip:111.231.252.137
+    账号：Administrator
+    密码：CHEN@19910601
 
 
 
