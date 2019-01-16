@@ -87,3 +87,9 @@ shadowsocks的配置：
 js打印软件：http://www.lodop.net/
 
 qq密码：tk+以前密码后面的数字
+
+测试服务器的几个域名：
+    主入口：http://cs-erp.yaojushi.com
+    测试商品中心：http://cs-product.yaojushi.com
+    测试权限系统：http://cs-auth.yaojushi.com
+    测试往来系统：http://cs-unit.yaojushi.com
