@@ -93,3 +93,5 @@ qq密码：tk+以前密码后面的数字
     测试商品中心：http://cs-product.yaojushi.com
     测试权限系统：http://cs-auth.yaojushi.com
     测试往来系统：http://cs-unit.yaojushi.com
+
+windows service 2016 用nginx部署项目https://blog.csdn.net/h610443955/article/details/81096506
