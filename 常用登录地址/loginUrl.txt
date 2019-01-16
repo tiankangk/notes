@@ -51,6 +51,11 @@ xshell:账号：root
     账号：Administrator
     密码：CHEN@19910601
 
+公司test服务器地址：
+    ip:39.108.53.208
+    账号：administrator
+    密码：YJS@comcn20180101    
+
 
 
 去哪了： https://pan.baidu.com/s/1DHcsSGcg755WJTtG65MVdg   提取码：3c1b   
