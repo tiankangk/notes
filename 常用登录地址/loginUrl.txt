@@ -109,3 +109,5 @@ root 后面的参数  /表示c盘的路径  不要用 :C/加文件路径
 登录地址：http://192.168.0.126:8090/#recently-worked
     账号：tiankang
     密码：tiankang123
+
+mssql sql语句地址：https://www.cnblogs.com/PyLearn/category/1090949.html
