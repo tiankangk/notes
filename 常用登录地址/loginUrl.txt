@@ -56,6 +56,11 @@ xshell:账号：root
     账号：administrator
     密码：YJS@comcn20180101 
 
+Z服务器地址：
+    ip:192.168.0.199   
+    用户名：Administrator 
+    密码：Admin&Yaojushi.com
+
 erp数据库连接地址：   
     ip:192.168.0.199   
     用户名：YJSMD_Login 

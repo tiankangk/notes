@@ -1,0 +1,8 @@
+1、select * from A WHERE A.spid <>ALL(SELECT spid FROM B)
+ps：查询A表中的spid不等于B表中的spid的值
+
+2、select AVG(dj) , rq from A group by djbh,rq
+ps:从A表中以djbh和rq都满足值相同的作为一个分组，在通过AVG取单价的平均值
+
+3、insert into A (value1,value2) select value1,value2 UNION value1,value2
+ps:向A表中批量插入值
