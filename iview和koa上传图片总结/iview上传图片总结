@@ -1,0 +1,15 @@
+1、用reander读取图片，并在前端显示
+    ps:let reader = new FileReader();
+        let _this = this;
+        reader.readAsDataURL(file);
+        reader.onloadend = e => {
+            _this.uploadList.push(reader.result);//reader.result是base64格式的图片
+        };
+
+2、用axios上传图片
+    let param = new FormData(); //创建form对象
+    param.append("uploadPicData", JSON.stringify(this.uploadPicData));把uploadPicData对象转成json格式的对象并加入param参数里
+
+    param.append("file",file);把图片对象加入param里面
+
+    把param当参数传到后台

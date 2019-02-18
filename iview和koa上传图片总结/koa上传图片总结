@@ -1,0 +1,37 @@
+1、安装koa-body用koa-body解析参数，不要用koa-bodyparser
+2、安装koa-static 设置静态文件
+3、在app.js里面引入
+    const koaBody = require('koa-body');
+    const serve = require("koa-static");
+    app.use(koaBody({
+        multipart: true
+        ,
+        formidable: {
+            maxFileSize: 200*1024*1024    // 设置上传文件大小最大限制，默认2M
+        }
+    }))
+    .use(serve(__dirname))  // 设置静态文件
+    ;
+
+ 
+
+        接收对象参数和文件参数
+        const body = ctx.request.files;
+        const data = JSON.parse(ctx.request.body.uploadPicData);
+
+        写入文件
+        let uploadDir = './images/';
+        let fileName = item.name;
+        let newFileName = Date.now() + '_' + fileName;
+        let readStream = fs.createReadStream(item.path);
+        let writeStream = fs.createWriteStream(uploadDir + newFileName);
+        readStream.pipe(writeStream);
+
+        删除文件
+        removeImg.forEach(item => {
+            img.remove(item);
+            let picName = item.slice(item.lastIndexOf("\/") + 1, item.length);
+            fs.unlink(uploadDir + picName, () => {
+                console.log('删除成功！');
+            })
+        });
