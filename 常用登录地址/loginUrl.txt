@@ -61,6 +61,16 @@ Z服务器地址：
     用户名：Administrator 
     密码：Admin&Yaojushi.com
 
+38
+    ip: 192.168.0.38
+    用户名：Administrator 
+    密码：Admin&Yaojushi.com
+
+38数据库连接地址：
+    ip:192.168.0.38   
+    用户名：YJSMD_Login 
+    密码：YJS@123
+
 erp数据库连接地址：   
     ip:192.168.0.199   
     用户名：YJSMD_Login 
