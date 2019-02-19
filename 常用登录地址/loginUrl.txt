@@ -76,6 +76,13 @@ erp数据库连接地址：
     用户名：YJSMD_Login 
     密码：YJS@123
 
+wiki文档系统
+地址:wiki.yaojushi.com
+初始化密码:
+账号:拼音
+密码:拼音+123
+
+
 vue+koa视频：https://www.chungold.com/
     账号：18186319991
     密码：qq360930848
