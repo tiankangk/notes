@@ -79,8 +79,8 @@ erp数据库连接地址：
 wiki文档系统
 地址:wiki.yaojushi.com
 初始化密码:
-账号:拼音
-密码:拼音+123
+账号:拼音tiankang
+密码:拼音+123  tiankang524883
 
 
 vue+koa视频：https://www.chungold.com/
