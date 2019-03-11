@@ -66,7 +66,7 @@ Z服务器地址：
 38
     ip: 192.168.0.38
     用户名：Administrator 
-    密码：Admin&Yaojushi.com
+    密码：YaoJuShi.COM&Admin@668
 
 38数据库连接地址：
     ip:192.168.0.38   
