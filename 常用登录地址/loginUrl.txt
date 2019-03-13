@@ -2,6 +2,8 @@
 
 前端九部 - 入门者手册2019地址：https://www.yuque.com/fe9/basic
 
+京东前端规范：https://guide.aotu.io/docs/html/code.html
+
 一笑租赁pc网址：http://web.kongmings.com/app/index.php?i=4&c=entry&do=shop_index&m=smile_lease
 
 酒店管理后台网址：http://card.kongmings.com/
