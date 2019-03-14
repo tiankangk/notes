@@ -19,6 +19,8 @@
 
 gitlab登录地址：http://gitlab.yaojushi.com/
 
+pm2开机自启：https://juejin.im/post/5b823506e51d4538d517662f
+
 
 svn下载地址：svn://101.201.234.151/smile_fruits
 
