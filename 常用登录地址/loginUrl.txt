@@ -1,5 +1,7 @@
 最全笔记：https://juejin.im/post/5c11bf145188252704368b98?tdsourcetag=s_pcqq_aiomsg
 
+把文字转成语音保存：https://developer.baidu.com/vcast
+
 前端九部 - 入门者手册2019地址：https://www.yuque.com/fe9/basic
 
 京东前端规范：https://guide.aotu.io/docs/html/code.html
